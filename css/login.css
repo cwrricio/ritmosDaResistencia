@@ -1,6 +1,8 @@
 body {
     height: 100vh;
+    font-family: 'Poppins', sans-serif;
 }
+
 .login-container {
     min-height: 100vh;
 }
@@ -22,7 +24,12 @@ body {
     color: #757575;
     border: 1px solid #ddd;
 }
+
+.google-btn:hover {
+    background-color: rgb(233, 226, 226);
+    color: #757575;
+}
 .google-btn img {
-    width: 20px;
+    width: 30px;
     margin-right: 8px;
 }
