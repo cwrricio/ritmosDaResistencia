@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+        }
+        .login-container {
+            min-height: 100vh;
+        }
+        .bg-orange {
+            background-color: #FDB347;
+        }
+        .bg-brick {
+            background-color: #B93F2A;
+        }
+        .sign-in-btn {
+            background-color: #2F9B84;
+            border: none;
+        }
+        .sign-in-btn:hover {
+            background-color: #267B69;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <!-- esquerda -->
+            <div class="col-md-6 bg-orange order-2 order-md-1">
+                <div class="d-flex align-items-center justify-content-center"  style="height: 100vh;">
+                    <img src="assets/menino.svg" class="w-50">
+                </div>
+            </div>
+            
+            <!-- direita -->
+            <div class="col-md-6 bg-brick text-white order-1 order-md-2">
+                <div class="d-flex flex-column justify-content-center login-container">
+                    <div class="mx-auto w-100" style="max-width: 400px;">
+                        <h2 class="mb-4">CADASTRAR</h2>
+                        <p class="text-light mb-4">RITMOS DA RESISTÊNCIA</p>
+                        
+                        <form>
+
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nome</label>
+                                <input type="name" class="form-control" id="name">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="password">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Confirmar Senha</label>
+                                <input type="password" class="form-control" id="confirm-password">
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mb-3">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="remember">
+                                    <label class="form-check-label" for="remember">Lembrar de mim</label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn sign-in-btn text-white w-100 mb-3">Cadastrar</button>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
