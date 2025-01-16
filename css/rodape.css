@@ -1,0 +1,11 @@
+.footer{
+background-color: #B93F2A;
+display: flex;
+width: 1279px;
+height: 343px;
+padding: 300px;
+align-items: flex-start;
+align-content: flex-start;
+gap: 16px var(--sds-size-space-400);
+flex-wrap: wrap; 
+}
