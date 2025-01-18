@@ -3,6 +3,7 @@ body {
     background-color: #FDB347;
     margin: 0;
     padding: 0;
+    padding-top: 100px; /* Vai garantir que o restante do conteúdo apareça depois do cabeçalho*/
 }
 
 .navbar {

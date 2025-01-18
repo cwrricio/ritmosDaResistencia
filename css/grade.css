@@ -1,0 +1,15 @@
+.grade-artistas {
+    background-color: #d23f31; 
+    padding: 20px;
+}
+
+.grade-artistas img {
+    width: 100%;
+    height: auto;
+}
+
+.card-artista {
+    padding: 10px;
+}
+
+/*não terminei ainda*/
