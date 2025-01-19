@@ -17,8 +17,8 @@ body {
 .container-music-box {
     font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
-    background-color: #e7e7e7;
-    box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5);
+    /* background-color: #e7e7e7;
+    box-shadow: 0 5px 30px 5px rgba(0, 0, 0, 0.5); */
     transition: all 0.5s;
     opacity: 1;
     display: flex;
@@ -88,7 +88,7 @@ h3{
 
 
 .progress {
-    background-color: #212121;
+    background-color: #B93F2A;
     border-radius: 5px;
     height: 100%;
     width: 0%;

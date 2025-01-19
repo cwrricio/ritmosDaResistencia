@@ -21,7 +21,7 @@ const songs = [
     {
         path: '../assets/musicasplayer/aloba.mp3',
         displayName: 'A Loba',
-        cover: '../assets/logomusicasplayer/alcione.png ',
+        cover: '../assets/logomusicasplayer/alcione2.png ',
         artist: 'Alcione',
     },
     {
