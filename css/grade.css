@@ -9,7 +9,27 @@
 }
 
 .card-artista {
+    margin-bottom: 15px;
     padding: 10px;
+    text-align: center;
+}
+.grade-artistas {
+    background-color: #d23f31;
+    padding: 20px;
 }
 
-/*não terminei ainda*/
+.card-artista img {
+    width: 100%; 
+    height: auto;
+}
+.alcione-pos {
+    margin-top: -200px; /* Ajuste negativo para subir */
+    position: relative;
+    z-index: 1; /* Para garantir que fique visível */
+}
+
+.ludmila-pos {
+    margin-top: -80px; /* Ajuste negativo para subir */
+    position: relative;
+    z-index: 1; /* Para garantir que fique visível */
+}
