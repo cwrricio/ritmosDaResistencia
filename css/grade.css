@@ -2,6 +2,10 @@
     background-color: #d23f31; 
     padding: 20px;
 }
+.grade-artistas .container {
+    padding-left: 0;
+    padding-right: 0;
+}
 
 .grade-artistas img {
     width: 100%;
@@ -12,16 +16,19 @@
     margin-bottom: 15px;
     padding: 10px;
     text-align: center;
-}
-.grade-artistas {
-    background-color: #d23f31;
-    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 100%;
 }
 
 .card-artista img {
     width: 100%; 
     height: auto;
+    display: block;
+    margin: 0 auto;
 }
+
 .alcione-pos {
     margin-top: -200px; /* Ajuste negativo para subir */
     position: relative;
@@ -33,3 +40,44 @@
     position: relative;
     z-index: 1; /* Para garantir que fique visível */
 }
+
+.artista-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3 ease;
+}
+
+.card-artista:hover img {
+    transform: scale(1.1); /* Aumenta a escala da imagem */
+    opacity: 0.7; /* Torna a imagem parcialmente transparente */
+}
+
+.artista-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3 ease;
+    pointer-events: none;
+}
+
+.card-artista:hover .artista-overlay {
+    opacity: 1;
+}
+
+.artista-nome {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
