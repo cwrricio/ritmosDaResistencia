@@ -30,13 +30,13 @@
 }
 
 .alcione-pos {
-    margin-top: -200px; /* Ajuste negativo para subir */
+    margin-top: -140px; /* Ajuste negativo para subir */
     position: relative;
     z-index: 1; /* Para garantir que fique visível */
 }
 
 .ludmila-pos {
-    margin-top: -80px; /* Ajuste negativo para subir */
+    margin-top: -20px; /* Ajuste negativo para subir */
     position: relative;
     z-index: 1; /* Para garantir que fique visível */
 }
@@ -79,5 +79,12 @@
     text-align: center;
 }
 
+.artista-pos{
+    margin-top: 76px;
+    right: 326px;
+}
+.pericles-pos{
+    left: 982px;
+    margin-top: -351px;
 
-
+}
