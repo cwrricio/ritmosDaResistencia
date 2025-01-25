@@ -29,17 +29,7 @@
     margin: 0 auto;
 }
 
-.alcione-pos {
-    margin-top: -140px; /* Ajuste negativo para subir */
-    position: relative;
-    z-index: 1; /* Para garantir que fique visível */
-}
 
-.ludmila-pos {
-    margin-top: -22px; /* Ajuste negativo para subir */
-    position: relative;
-    z-index: 1; /* Para garantir que fique visível */
-}
 
 .artista-container img {
     width: 100%;
@@ -79,6 +69,7 @@
     text-align: center;
 }
 
+/* caso queira mexer nessa parte fique a vtd*/
 .artista-pos{
     margin-top: 110px;
     right: 327px;
@@ -87,4 +78,15 @@
     left: 982px;
     margin-top: -380px;
 
+}
+.alcione-pos {
+    margin-top: -140px; 
+    position: relative;
+
+}
+
+.ludmila-pos {
+    margin-top: -22px; 
+    position: relative;
+   
 }
