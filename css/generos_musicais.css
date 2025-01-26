@@ -32,8 +32,9 @@
 }
 
 .card-genero img {
-    max-width: 500px;
+    max-width: 400px;
     height: auto;
+    margin: 30px;
 }
 
 .genero-conteudo {
@@ -50,5 +51,3 @@
     font-size: 1rem;
     color: white;
 }
-
-
