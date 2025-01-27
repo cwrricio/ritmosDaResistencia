@@ -51,3 +51,6 @@
     font-size: 1rem;
     color: white;
 }
+.card-genero-reverse {
+    flex-direction: row-reverse; 
+}
