@@ -1,0 +1,63 @@
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100hv;
+}
+#slider{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+#slider img{
+    opacity: 0;
+    transition: opacity 800ms;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#slider img.selected{
+    opacity: 1;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparência sobre as imagens */
+    color: white;
+    text-align: center;
+}
+.content {
+    max-width: 500px;
+    padding: 20px;
+    background-color: #d23f31; 
+    border-radius: 10px;
+}
+
+.creators {
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.creators .card {
+    background: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.card img {
+    height: 200px; /* Ajuste conforme necessário */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border-top-left-radius: 0.5rem; /* Para manter consistência com o card */
+    border-top-right-radius: 0.5rem;
+}

@@ -18,7 +18,7 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease-in-out;
     height: 100%;
 }
 
@@ -28,18 +28,16 @@
     display: block;
     margin: 0 auto;
 }
-
-
-
 .artista-container img {
     width: 100%;
     height: auto;
-    transition: transform 0.3s ease, opacity 0.3 ease;
+    display: block;
+    transition: transform 0.5s ease-in-out, opacity 0.3 ease;
 }
 
 .card-artista:hover img {
-    transform: scale(1.1); /* Aumenta a escala da imagem */
-    opacity: 0.7; /* Torna a imagem parcialmente transparente */
+    transform: scale(1.2); 
+    opacity: 0.7; 
 }
 
 .artista-overlay {
