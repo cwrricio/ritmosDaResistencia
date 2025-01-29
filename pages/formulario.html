@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg" href="../assets/logo.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link href="../css/header.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/formulario.css">
+  <title>Formulário de Artista Musical</title>
+</head>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+            <img src="../assets/logo.svg" alt="Logo" class="d-inline-block align-text-top">
+            <span class="text-white">RITMOS DA RESISTÊNCIA</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="../pages/formulario.html">SOU ARTISTA!</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/player.html">MUSIC PLAYER</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/apoie.html">APOIE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/cadastro.html">INSCREVA-SE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-custom" href="../pages/login.html">ENTRAR</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h1>CADASTRO DE ARTISTA</h1>
+      <form>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+
+        <label for="nomeArtistico">Nome Artístico:</label>
+        <input type="text" id="nomeArtistico" name="nomeArtistico" placeholder="Digite seu nome artístico" required>
+
+        <label for="nomeMusica">Nome da Música:</label>
+        <input type="text" id="nomeMusica" name="nomeMusica" placeholder="Digite o nome da música" required>
+        <label for="capaMusica">Capa da Música:</label>
+
+        <div class="file-input">
+          <input type="file" id="capaMusica" name="capaMusica" accept="image/jpeg, image/png" onchange="previewImage(event)" required>
+          <small>Formato permitido: JPEG ou PNG. Tamanho máximo recomendado: 500x500 pixels.</small>
+        
+        <label for="genero">Gênero Musical:</label>
+        <select id="genero" name="genero" required>
+          <option value="rap">Rap</option>
+          <option value="rnb">R&B</option>
+          <option value="jazz">Jazz</option>
+          <option value="mpb">MPB</option>
+          <option value="samba">Samba</option>
+        </select>
+
+        <label for="spotify">Spotify:</label>
+        <div class="icon-input">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+          <input type="url" id="spotify" name="spotify" placeholder="Link do perfil no Spotify">
+        </div>
+
+        <label for="instagram">Instagram:</label>
+        <div class="icon-input">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+          <input type="url" id="instagram" name="instagram" placeholder="Link do perfil no Instagram">
+        </div>
+
+        </div>
+
+        <label for="sobre">Fale sobre você como artista:</label>
+        <textarea id="sobre" name="sobre" placeholder="Descreva seu trabalho como artista..." required></textarea>
+
+        <button type="submit">Enviar Formulário</button>
+      </form>
+    </div>
+    <div class="preview-container" id="preview" style="display: none;">
+      <img id="previewImage" class="preview-image" src="https://via.placeholder.com/300x300" alt="Pré-visualização da Capa">
+      <div class="preview-title" id="previewTitle">Nome da Música</div>
+      <div class="preview-artist" id="previewArtist">Nome do Artista</div>
+    </div>
+  </div>
+</body>
+
+<script src="../scripts/formpreview.js"></script>
+
+</html>

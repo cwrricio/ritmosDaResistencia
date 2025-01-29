@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Staatliches&display=swap');
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #FDB347;
@@ -9,7 +10,7 @@ body {
 .navbar {
     background: #FDB347;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
     width: 100%;
     position: fixed; /* Fixa o header no topo */
     top: 0;

@@ -37,18 +37,26 @@ body{
     background-color: rgba(0, 0, 0, 0.5); /* Transparência sobre as imagens */
     color: white;
     text-align: center;
+    font-family: "Staatliches", serif;
 }
 .content {
     max-width: 500px;
     padding: 20px;
-    background-color: #d23f31; 
-    border-radius: 10px;
+    background-color: none; 
+    border-radius: 2px;
+    border-style: solid;
+    border-color: white;
+    margin-bottom: 150px;
 }
 
+h2{
+    font-family: "Staatliches", serif;
+}
 .creators {
     top: 50%;
     transform: translateY(-50%);
     z-index: 0;
+    margin-bottom: 0%;
 }
 
 .creators .card {
@@ -56,10 +64,12 @@ body{
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    margin-bottom: 0%;
 }
 .card img {
-    height: 200px; /* Ajuste conforme necessário */
+    height: 290px; /* Ajuste conforme necessário */
     object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
     border-top-left-radius: 0.5rem; /* Para manter consistência com o card */
     border-top-right-radius: 0.5rem;
 }
+
