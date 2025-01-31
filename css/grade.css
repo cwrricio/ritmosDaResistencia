@@ -21,8 +21,7 @@
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
     height: 100%;
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+
 }
 
 .card-artista img {
@@ -31,7 +30,6 @@
     display: block;
     margin: 0 auto;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease;
-    border-radius: 10px; /* Bordas arredondadas na imagem */
 }
 
 .card-artista:hover img {
@@ -54,7 +52,6 @@
     transition: opacity 0.3s ease;
     pointer-events: none;
     padding: 20px; /* Espaçamento interno */
-    border-radius: 10px; /* Bordas arredondadas */
 }
 
 .card-artista:hover .artista-overlay {
@@ -70,5 +67,5 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
 }
 
-/* Ajustes de posicionamento (caso queira manter) */
+
 
