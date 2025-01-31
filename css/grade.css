@@ -2,6 +2,7 @@
     background-color: #d23f31; 
     padding: 20px;
 }
+
 .grade-artistas .container {
     padding-left: 0;
     padding-right: 0;
@@ -18,8 +19,10 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     height: 100%;
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
 
 .card-artista img {
@@ -27,17 +30,13 @@
     height: auto;
     display: block;
     margin: 0 auto;
-}
-.artista-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease-in-out, opacity 0.3 ease;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+    border-radius: 10px; /* Bordas arredondadas na imagem */
 }
 
 .card-artista:hover img {
-    transform: scale(1.2); 
-    opacity: 0.7; 
+    transform: scale(1.05); /* Zoom mais suave */
+    opacity: 0.8; /* Leve transparência */
 }
 
 .artista-overlay {
@@ -46,18 +45,20 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)); /* Gradiente escuro */
     color: #fff;
     display: flex;
-    align-items: center;
+    align-items: flex-end; /* Alinha o texto na parte inferior */
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3 ease;
+    transition: opacity 0.3s ease;
     pointer-events: none;
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
 }
 
 .card-artista:hover .artista-overlay {
-    opacity: 1;
+    opacity: 1; /* Mostra o overlay ao passar o mouse */
 }
 
 .artista-nome {
@@ -65,26 +66,9 @@
     font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 10px; /* Espaçamento abaixo do nome */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto */
 }
 
-/* caso queira mexer nessa parte fique a vtd*/
-.artista-pos{
-    margin-top: 110px;
-    right: 327px;
-}
-.pericles-pos{
-    left: 982px;
-    margin-top: -380px;
+/* Ajustes de posicionamento (caso queira manter) */
 
-}
-.alcione-pos {
-    margin-top: -140px; 
-    position: relative;
-
-}
-
-.ludmila-pos {
-    margin-top: -22px; 
-    position: relative;
-   
-}
