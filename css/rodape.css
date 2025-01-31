@@ -2,7 +2,9 @@
   background-color: #B93F2A;
   padding: 20px 15px;
   width: 100%;
-  margin-top: 0%;
+  margin-top: 20px; /* Adiciona um espaçamento acima do footer */
+  position: relative; /* Garante que o footer fique no fluxo normal */
+  clear: both; /* Limpa qualquer float */
 }
 
 .footer-social a img {

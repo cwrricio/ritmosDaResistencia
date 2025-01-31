@@ -1,4 +1,82 @@
-.salve-a-crianca {
-    max-width: 200px;
+body {
+    font-family: 'Poppins', sans-serif;
+}
 
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #000000;
+}
+
+a {
+    color: #B93F2A;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #9a3423;
+    text-decoration: underline;
+}
+
+.btn {
+    background-color: #B93F2A;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #9a3423;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p,
+    .lead {
+        font-size: 1rem;
+    }
+
+    .navbar-brand span {
+        font-size: 1rem;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
