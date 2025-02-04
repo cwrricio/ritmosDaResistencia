@@ -20,7 +20,11 @@ h3 {
     font-size: 28px;
 }
 
-.lead {
+p{
+    font-weight: 500;
+}
+
+.lead{
     font-size: 20px;
     font-weight: 500;
 
