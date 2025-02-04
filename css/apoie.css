@@ -1,20 +1,20 @@
-body{
+body {
     margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 100hv;
+    min-height: 100vh;
 }
 
-
-#slider{
+#slider {
     width: 100vw;
     height: 100vh;
     position: relative;
     overflow: hidden;
 }
-#slider img{
+
+#slider img {
     opacity: 0;
     transition: opacity 800ms;
     position: absolute;
@@ -22,9 +22,11 @@ body{
     height: 100%;
     object-fit: cover;
 }
-#slider img.selected{
+
+#slider img.selected {
     opacity: 1;
 }
+
 .overlay {
     position: absolute;
     top: 0;
@@ -34,24 +36,26 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Transparência sobre as imagens */
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;
     text-align: center;
     font-family: "Staatliches", serif;
 }
+
 .content {
     max-width: 500px;
     padding: 20px;
-    background-color: none; 
+    background-color: none;
     border-radius: 2px;
     border-style: solid;
     border-color: white;
     margin-bottom: 150px;
 }
 
-h2{
+h2 {
     font-family: "Staatliches", serif;
 }
+
 .creators {
     top: 50%;
     transform: translateY(-50%);
@@ -60,16 +64,74 @@ h2{
 }
 
 .creators .card {
-    background: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+    background: rgba(255, 255, 255, 0.9);
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     margin-bottom: 0%;
 }
+
 .card img {
-    height: 290px; /* Ajuste conforme necessário */
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
-    border-top-left-radius: 0.5rem; /* Para manter consistência com o card */
-    border-top-right-radius: 0.5rem;
+    height: 290px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
+@media (max-width: 768px) {
+    .navbar {
+        display: block;
+        /* Garante que o navbar seja exibido */
+    }
+
+    .navbar-brand span {
+        font-size: 16px;
+
+    }
+
+    .navbar-nav {
+        text-align: center;
+        background-color: #FDB347;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #slider {
+        height: 400px;
+    }
+
+    .content {
+        margin-bottom: 30px;
+        padding: 5px;
+    }
+
+    .content h1 {
+        font-size: 20px;
+    }
+
+    .content p {
+        font-size: 14px;
+    }
+
+    .creators {
+        margin-top: 15px;
+        transform: none;
+        position: static;
+    }
+
+    .creators .card {
+        margin-bottom: 5px;
+    }
+
+    .card img {
+        height: 150px;
+    }
+}
