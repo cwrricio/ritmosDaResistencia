@@ -140,3 +140,51 @@ select{
   margin-right: 10px;
   color: #B93F2A; 
 }
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-toggler {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    border: none;
+  }
+
+  .navbar-collapse {
+    background-color: #B93F2A;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin-bottom: 0.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Espaço entre o formulário e o preview */
+  }
+
+  .form-container {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .preview-container {
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .preview-image {
+    max-width: 250px;
+  }
+}
