@@ -1,8 +1,28 @@
-# ritmosDaResistencia
+# Ritmos da Resistência | Squad 06 🎶🎷 
+Plataforma para encontrar e reservar destinos de viagem de forma rápida e intuitiva.
 
-Responder as questões: 
 
-• Considerando o desafio escolhido, qual é o problema a ser resolvido e que será contemplado com o projeto final?  
+## 🛠️ Tecnologias Utilizadas  
+- HTML, CSS e JavaScript  
+- Bootstrap
+
+Lider:
+Emanuel 
+
+Vice lider:
+Graziela 
+
+## Banco de Dados
+### Modelo Entidade Relacionamento:
+
+
+### Modelo Lógico:
+
+
+
+# Respondendo questões: 
+
+## Considerando o desafio escolhido, qual é o problema a ser resolvido e que será contemplado com o projeto final?  
 
 O desafio que escolhemos abordar está relacionado à visibilidade e valorização de artistas negros no Brasil. A cultura negra é extremamente rica e tem uma influência profunda em diversas áreas, especialmente na música. No entanto, muitos artistas enfrentam dificuldades para divulgar seu trabalho e alcançar o reconhecimento que merecem.
 
@@ -10,13 +30,13 @@ Nosso projeto busca solucionar esse problema por meio de um site colaborativo, q
 
 
 
-• Qual o público-alvo? A solução poderá ser aplicada a todos, sem restrição de idade ou grau de escolaridade, por exemplo?  
+## Qual o público-alvo? A solução poderá ser aplicada a todos, sem restrição de idade ou grau de escolaridade, por exemplo?  
 
 Nosso público-alvo inclui tanto artistas que desejam divulgar seu trabalho quanto pessoas interessadas em música e que queiram apoiar essa iniciativa. A plataforma será acessível a todos, sem restrições de idade ou nível de escolaridade, pois não se trata de um projeto com fins lucrativos. O objetivo é criar um espaço inclusivo e colaborativo, onde qualquer pessoa possa participar, seja para compartilhar sua arte, descobrir novos talentos ou contribuir para a valorização da cultura negra.
 
 
 
-• O problema foi escolhido com base em quais dados oficiais? Como vocês identificaram que esse realmente é um problema para o público-alvo? Indique as referências usadas, justificando a sua escolha. 
+## O problema foi escolhido com base em quais dados oficiais? Como vocês identificaram que esse realmente é um problema para o público-alvo? Indique as referências usadas, justificando a sua escolha. 
 
 Para identificar e justificar a relevância desse problema, utilizamos reportagens de veículos renomados, como O Globo, que abordam a trajetória da música negra no Brasil e seu impacto na sociedade. Através dessas fontes, observamos como a música tem sido uma ferramenta poderosa de expressão, resistência e identidade para a comunidade negra ao longo da história.
 
@@ -31,7 +51,7 @@ Referências:
 • Outras fontes jornalísticas e culturais que abordam a marginalização de gêneros musicais e artistas negros
 
 
-• Como esse problema afeta o público-alvo? 
+## Como esse problema afeta o público-alvo? 
 
 Esse problema afeta diretamente o público-alvo, principalmente devido ao preconceito enraizado na sociedade. Um exemplo claro disso foi o surgimento da bossa nova, um estilo derivado do samba, criado em uma época em que o samba era marginalizado por suas letras que abordavam a religiosidade afro-brasileira e por estar associado a comunidades periféricas. A bossa nova foi adaptada para ser mais aceita pelas elites brancas, com uma sonoridade mais suave e romântica, tornando-se um exemplo de como a cultura negra muitas vezes precisa ser "modificada" para alcançar maior aceitação.
 
@@ -42,43 +62,41 @@ Nosso projeto busca minimizar esse problema ao oferecer uma plataforma de divulg
 
 
 
-• Qual o cronograma das atividades?  
+## Qual o cronograma das atividades?  
 Nosso cronograma foi adaptado conforme a necessidade, já que enfrentamos desafios como a falta de pessoas na equipe. No entanto, organizamos as atividades em etapas semanais para garantir o progresso do projeto.
 
-Cronograma das Atividades:
+### Cronograma das Atividades:
 
-• Semana 1: Pesquisa de sites semelhantes e levantamento de referências para entender as melhores práticas.
+- Semana 1: Pesquisa de sites semelhantes e levantamento de referências para entender as melhores práticas.
 
-• Semana 2: Prototipagem da interface, definindo o layout e a experiência do usuário.
+- Semana 2: Prototipagem da interface, definindo o layout e a experiência do usuário.
 
-• Semana 3: Início da codificação, com a implementação das funcionalidades principais.
+- Semana 3: Início da codificação, com a implementação das funcionalidades principais.
 
-• Semanas seguintes: Desenvolvimento contínuo do site, ajustes com base em testes e feedback da equipe.
+- Semanas seguintes: Desenvolvimento contínuo do site, ajustes com base em testes e feedback da equipe.
 
 Apesar de não termos datas fixas para todas as etapas, seguimos essa estrutura para garantir um fluxo de trabalho eficiente e organizado.
 
 
-• Como será feita a distribuição das atividades entre os integrantes do squad para essa primeira entrega?  
+## Como será feita a distribuição das atividades entre os integrantes do squad para essa primeira entrega?  
 
-Distribuição das Atividades no Squad – Primeira Entrega
+### Distribuição das Atividades no Squad – Primeira Entrega
 
-• Fernanda: Responsável pela pesquisa de referências e conteúdos relevantes para o site, garantindo uma base sólida para o desenvolvimento.
+- Fernanda: Responsável pela pesquisa de referências e conteúdos relevantes para o site, garantindo uma base sólida para o desenvolvimento.
 
-• Caren: Encarregada da estilização da prototipagem no Figma e da elaboração dos diagramas do banco de dados, estruturando a parte visual e conceitual do projeto.
+- Caren: Encarregada da estilização da prototipagem no Figma e da elaboração dos diagramas do banco de dados, estruturando a parte visual e conceitual do projeto.
 
-• Emanuel e Graziela: Responsáveis pelo desenvolvimento do código, implementando as funcionalidades do site e garantindo seu funcionamento técnico.
+- Emanuel e Graziela: Responsáveis pelo desenvolvimento do código, implementando as funcionalidades do site e garantindo seu funcionamento técnico.
 
 Cada integrante contribuiu com uma etapa essencial para a construção do projeto, permitindo que o trabalho avançasse de forma organizada e colaborativa.
 
-
-• Qual a ferramenta de gerenciamento de projeto será usada para o monitoramento das atividades? Ex: Trello, Asana, Jira, Monday
+## Qual a ferramenta de gerenciamento de projeto será usada para o monitoramento das atividades? Ex: Trello, Asana, Jira, Monday
 
 Para o monitoramento das atividades, utilizamos principalmente o WhatsApp como meio de comunicação para atualizar o time sobre o andamento das tarefas. Além disso, usamos o GitHub para versionamento do código e controle dos commits, garantindo que todas as contribuições fossem registradas e acompanhadas.
 
 No entanto, para as próximas entregas, planejamos adotar o Trello como ferramenta principal de organização, permitindo uma melhor distribuição e acompanhamento das atividades de forma mais estruturada.
 
  
-
 
 
 https://cwrricio.github.io/ritmosDaResistencia/
