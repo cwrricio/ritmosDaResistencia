@@ -1,5 +1,5 @@
 # Ritmos da Resistência🎶🎷 
-Desafio proposto com o tema 'Negros', voltado para artistas e apreciadores de música.
+O desafio é a falta de visibilidade para artistas negros no Brasil. Nosso site colaborativo oferece um espaço para divulgação e apoio, sem fins lucrativos. O público-alvo inclui artistas negros e pessoas interessadas em música, sem restrições de idade ou escolaridade, promovendo a valorização da cultura negra.
 
 ## Squad 06
 ### Membros:
