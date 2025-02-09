@@ -1,4 +1,6 @@
 # Ritmos da Resistência🎶🎷 
+Desafio proposto com o tema 'Negros', voltado para artistas e apreciadores de música.
+
 ## Squad 06
 ### Membros:
 - Caren
@@ -10,12 +12,12 @@
 - HTML, CSS e JavaScript  
 - Bootstrap
 
-
 ## Banco de Dados
 ### Modelo Entidade Relacionamento:
-
+![image](https://github.com/user-attachments/assets/af2abd9b-92a5-4b51-8efa-71d26ccff093)
 
 ### Modelo Lógico:
+![image](https://github.com/user-attachments/assets/941e132b-3150-4866-bfe5-d49aecfc4d56)
 
 
 
@@ -43,13 +45,6 @@ Muitas dessas reportagens destacam que, apesar de seu valor cultural inestimáve
 
 Com base nessas informações, percebemos a necessidade de criar um espaço que amplifique as vozes desses artistas, oferecendo-lhes visibilidade e apoio. Nosso site surge como uma solução colaborativa para incentivar a divulgação de trabalhos musicais e fortalecer a representatividade da cultura negra.
 
-Referências:
-
-• Reportagens do jornal O Globo sobre a história e desafios da música negra no Brasil
-
-• Outras fontes jornalísticas e culturais que abordam a marginalização de gêneros musicais e artistas negros
-
-
 ## Como esse problema afeta o público-alvo? 
 
 Esse problema afeta diretamente o público-alvo, principalmente devido ao preconceito enraizado na sociedade. Um exemplo claro disso foi o surgimento da bossa nova, um estilo derivado do samba, criado em uma época em que o samba era marginalizado por suas letras que abordavam a religiosidade afro-brasileira e por estar associado a comunidades periféricas. A bossa nova foi adaptada para ser mais aceita pelas elites brancas, com uma sonoridade mais suave e romântica, tornando-se um exemplo de como a cultura negra muitas vezes precisa ser "modificada" para alcançar maior aceitação.
@@ -57,9 +52,6 @@ Esse problema afeta diretamente o público-alvo, principalmente devido ao precon
 Esse cenário ainda se repete nos dias de hoje, especialmente com músicas que questionam o sistema ou retratam a realidade das periferias. Muitos artistas negros enfrentam dificuldades para obter visibilidade e reconhecimento, seja por falta de oportunidades ou pelo preconceito estrutural que desvaloriza sua arte. Isso impacta não apenas sua carreira, mas também a representatividade da cultura negra no cenário musical e midiático.
 
 Nosso projeto busca minimizar esse problema ao oferecer uma plataforma de divulgação e apoio, permitindo que esses artistas alcancem um público maior sem precisar se adaptar a padrões impostos pelo mercado.
-
-
-
 
 ## Qual o cronograma das atividades?  
 Nosso cronograma foi adaptado conforme a necessidade, já que enfrentamos desafios como a falta de pessoas na equipe. No entanto, organizamos as atividades em etapas semanais para garantir o progresso do projeto.
@@ -75,7 +67,6 @@ Nosso cronograma foi adaptado conforme a necessidade, já que enfrentamos desafi
 - Semanas seguintes: Desenvolvimento contínuo do site, ajustes com base em testes e feedback da equipe.
 
 Apesar de não termos datas fixas para todas as etapas, seguimos essa estrutura para garantir um fluxo de trabalho eficiente e organizado.
-
 
 ## Como será feita a distribuição das atividades entre os integrantes do squad para essa primeira entrega?  
 
