@@ -1,16 +1,15 @@
-# Ritmos da Resistência | Squad 06 🎶🎷 
-Plataforma para encontrar e reservar destinos de viagem de forma rápida e intuitiva.
-
+# Ritmos da Resistência🎶🎷 
+## Squad 06
+### Membros:
+- Caren
+- Emanuel (líder)
+- Fernanda
+- Graziela (vice-lider)
 
 ## 🛠️ Tecnologias Utilizadas  
 - HTML, CSS e JavaScript  
 - Bootstrap
 
-Lider:
-Emanuel 
-
-Vice lider:
-Graziela 
 
 ## Banco de Dados
 ### Modelo Entidade Relacionamento:
@@ -97,6 +96,5 @@ Para o monitoramento das atividades, utilizamos principalmente o WhatsApp como m
 No entanto, para as próximas entregas, planejamos adotar o Trello como ferramenta principal de organização, permitindo uma melhor distribuição e acompanhamento das atividades de forma mais estruturada.
 
  
-
 
 https://cwrricio.github.io/ritmosDaResistencia/
