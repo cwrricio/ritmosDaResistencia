@@ -1,0 +1,33 @@
+.cadastroPage {
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.loginContainer {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.bgOrange {
+  background-color: #FDB347;
+}
+
+.bgBrick {
+  background-color: #B93F2A;
+}
+
+.signInBtn {
+  background-color: #2F9B84;
+  border: none;
+}
+
+.signInBtn:hover {
+  background-color: #267B69;
+}
+
+/* Estilo para mensagens de erro (opcional) */
+.errorMessage {
+  color: #ffcccb;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}

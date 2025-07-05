@@ -1,0 +1,41 @@
+.loginPage {
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.loginContainer {
+  min-height: 100vh;
+}
+
+.bgOrange {
+  background-color: #FDB347;
+}
+
+.bgBrick {
+  background-color: #B93F2A;
+}
+
+.signInBtn {
+  background-color: #2F9B84;
+  border: none;
+}
+
+.signInBtn:hover {
+  background-color: #267B69;
+}
+
+.googleBtn {
+  background-color: white;
+  color: #757575;
+  border: 1px solid #ddd;
+}
+
+.googleBtn:hover {
+  background-color: rgb(233, 226, 226);
+  color: #757575;
+}
+
+.googleBtn img {
+  width: 30px;
+  margin-right: 8px;
+}
