@@ -1,0 +1,160 @@
+.pageContainer {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #FDB347;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 2rem;
+  flex-grow: 1;
+}
+
+.formContainer {
+  background: #FDB347;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-right: auto;
+  border: 2px solid black;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-family: "Staatliches", serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #004d40;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+textarea {
+  height: 100px;
+}
+
+.iconInput {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.iconInput input {
+  flex-grow: 1;
+  margin-left: 0.5rem;
+}
+
+.icon {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #B93F2A;
+}
+
+button {
+  margin-top: 1.5rem;
+  background: #B93F2A;
+  color: white;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #c62828;
+}
+
+.fileInput {
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.fileInput input[type="file"] {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 2px solid #004d40;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.fileInput small {
+  display: block;
+  color: #666;
+  margin-top: 0.3rem;
+}
+
+.previewContainer {
+  margin-top: 20%;
+  margin-left: 7%;
+  max-width: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.previewImage {
+  width: 100%;
+  max-width: 300px;
+  border: 2px solid #004d40;
+  border-radius: 10px;
+}
+
+.previewTitle {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.previewArtist {
+  font-weight: 400;
+  color: #666;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .formContainer {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .previewContainer {
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .previewImage {
+    max-width: 250px;
+  }
+}
