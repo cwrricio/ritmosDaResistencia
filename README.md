@@ -14,10 +14,12 @@ O desafio é a falta de visibilidade para artistas negros no Brasil. Nosso site 
 
 ## Banco de Dados
 ### Modelo Entidade Relacionamento:
-![image](https://github.com/user-attachments/assets/af2abd9b-92a5-4b51-8efa-71d26ccff093)
+![image](https://github.com/user-attachments/assets/faec08b5-0c8b-43fe-8cbc-e91db33f0531)
+
 
 ### Modelo Lógico:
-![image](https://github.com/user-attachments/assets/941e132b-3150-4866-bfe5-d49aecfc4d56)
+![image](https://github.com/user-attachments/assets/b732b419-7e1f-43cc-8b77-ec6d11949ab7)
+
 
 
 
