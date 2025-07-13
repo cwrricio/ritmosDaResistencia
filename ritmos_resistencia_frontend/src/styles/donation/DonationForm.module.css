@@ -1,0 +1,214 @@
+.donationCard {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.donationCardHeader {
+  background: #B93F2A;
+  color: white;
+  padding: 1.5rem;
+}
+
+.cardTitleIcon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitleIconSvg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.cardDescriptionHeader {
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
+.donationCardContent {
+  padding: 1.5rem;
+}
+
+.formSpacing {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionLabel {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.separator {
+  height: 1px;
+  background-color: #B93F2A;
+  width: 100%;
+}
+
+.amountButtonsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.amountButton {
+  height: 3rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  background: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #000000;
+}
+
+.amountButton:hover {
+  background: #9a3423;
+  border-color: #9a3423;
+}
+
+.amountButtonSelected {
+  background: #B93F2A;
+  color: white;
+  border-color: #e6e6e6;
+}
+
+.customAmountContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #B93F2A;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+}
+
+.customAmountIcon {
+  width: 1rem;
+  height: 1rem;
+  color: #6b7280;
+}
+
+.customAmountInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.paymentMethodOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.paymentMethodOption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.paymentMethodOption:hover {
+  background: #f3f4f6;
+}
+
+.paymentMethodSelected {
+  border-color: #B93F2A;
+  background: #9a35231b;
+}
+
+.paymentMethodRadio {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.paymentMethodRadio:checked {
+  border-color: #B93F2A;
+}
+
+.paymentMethodRadio:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #B93F2A;
+  border-radius: 50%;
+}
+
+.paymentMethodIcon {
+  width: 1rem;
+  height: 1rem;
+  color: #6b7280;
+}
+
+.donorInfoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.inputLabel {
+  display: block;
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+.textInput {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+}
+
+.textareaInput {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 5rem;
+}
+
+.donateButton {
+  width: 100%;
+  height: 3rem;
+  background: #B93F2A;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.donateButton:hover {
+  background: #9a3423;
+}

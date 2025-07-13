@@ -1,0 +1,103 @@
+.infoCard {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.infoCardHeader {
+  padding: 1.25rem 1.5rem 0;
+}
+
+.infoCardTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #b93f2a;
+}
+
+.infoCardContent {
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.infoListSpacing {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.infoListItem {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.infoListItemIcon {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #b93f2a;
+  margin-top: 0.5rem;
+}
+
+.infoListItemTitle {
+  font-weight: 500;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+.infoListItemText {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Estilos específicos para FeaturedCard */
+.featuredArtistAvatarOne {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #f59e0b, #ef4444);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.featuredArtistAvatarTwo {
+  background: linear-gradient(to bottom right, #3b82f6, #10b981);
+}
+
+.featuredArtistAvatarThree {
+  background: linear-gradient(to bottom right, #8b5cf6, #ec4899);
+}
+
+.securityCard {
+  background: white;
+  border: 1px solid #d1fae5;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.securityCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.securityCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #b93f2a;
+  font-weight: 600;
+}
+
+.securityCardHeaderIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.securityCardText {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
