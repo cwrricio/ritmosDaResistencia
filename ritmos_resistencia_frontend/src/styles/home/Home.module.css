@@ -1,12 +1,11 @@
-/* Estilos gerais */
 .container {
   padding-left: 15px;
   padding-right: 15px;
 }
 
-/* Hero Section */
+
 .heroSection {
-  background-image: url('../../public/assets/fundo.jpg');
+  background-image: url('../../../public/assets/fundo.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -15,7 +14,6 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Tipografia */
 .title {
   font-size: 40px;
 }
@@ -37,7 +35,6 @@
   font-weight: 500;
 }
 
-/* Links e Botões */
 .link {
   color: #B93F2A;
   text-decoration: none;
@@ -64,7 +61,6 @@
   background-color: #9a3423;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .title {
     font-size: 32px;

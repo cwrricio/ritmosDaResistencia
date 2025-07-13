@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ArtistSlider from '../components/support/ArtistSlider';
-import styles from '../styles/Support.module.css';
+import styles from '../styles/support/Support.module.css';
 import { Link } from 'react-router-dom';
 
 const Support = () => {

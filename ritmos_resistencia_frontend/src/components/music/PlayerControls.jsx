@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaPlay, FaPause, FaBackward, FaForward } from 'react-icons/fa';
-import styles from '../../styles/MusicPlayer.module.css';
+import styles from '../../styles/music/MusicPlayer.module.css';
 
 const PlayerControls = ({ isPlaying, onPlayPauseClick, onPrevClick, onNextClick }) => {
   return (

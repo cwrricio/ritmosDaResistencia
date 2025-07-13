@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DollarSign, Heart, CreditCard, Smartphone } from "lucide-react"; 
 import { toast } from "sonner";
-import styles from '../../styles/DonationForm.module.css'; 
+import styles from '../../styles/donation/DonationForm.module.css'; 
 
 const DonationForm = () => {
   const [selectedAmount, setSelectedAmount] = useState("25");

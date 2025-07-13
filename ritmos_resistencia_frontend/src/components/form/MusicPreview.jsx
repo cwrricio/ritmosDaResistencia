@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/FormArtist.module.css';
+import styles from '../../styles/form/FormArtist.module.css';
 
 const MusicPreview = ({ image, title, artist, visible }) => {
   if (!visible) return null;

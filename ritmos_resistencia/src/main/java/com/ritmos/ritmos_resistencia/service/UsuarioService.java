@@ -1,4 +1,5 @@
 package com.ritmos.ritmos_resistencia.service;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -12,14 +13,30 @@ import com.ritmos.ritmos_resistencia.repository.UsuarioRepository;
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
-
+    
     @Autowired
     public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
+        
     }
+
     public Usuario salvarUsuario(Usuario usuario) {
-   
         return usuarioRepository.save(usuario);
+    }
+  public Optional<Usuario> buscarUsuarioPorEmail(String email) {
+        return usuarioRepository.findByEmail(email);
+    }
+    
+    public Optional<Usuario> autenticarUsuario(String email, String senha) {
+        Optional<Usuario> usuarioEncontrado = usuarioRepository.findByEmail(email); 
+
+        if (usuarioEncontrado.isPresent()) {
+            Usuario usuario = usuarioEncontrado.get();
+            if (usuario.getSenha().equals(senha)) {
+                return Optional.of(usuario);
+            }
+        }
+        return Optional.empty();
     }
 
     public List<Usuario> listarTodosUsuarios() {

@@ -5,7 +5,7 @@ import DonationForm from '../components/donation/DonationForm';
 import InfoCard from '../components/donation/InfoCard';
 import FeaturedCard from '../components/donation/FeaturedCard';
 import NoticeCard from '../components/donation/NoticeCard';
-import styles from '../styles/Donation.module.css'; 
+import styles from '../styles/donation/Donation.module.css'; 
 
 const Donation = () => {
 

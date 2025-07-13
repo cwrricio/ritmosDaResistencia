@@ -1,20 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ArtistForm from '../components/form/ArtistForm';
 import MusicPreview from '../components/form/MusicPreview';
-import styles from '../styles/FormArtist.module.css';
+import styles from '../styles/form/FormArtist.module.css';
 
 const FormArtist = () => {
+  const navigate = useNavigate();
+
+  const [loggedInUserId, setLoggedInUserId] = useState(null);
+  const [loggedInUserName, setLoggedInUserName] = useState('');
+
   const [formData, setFormData] = useState({
-    nome: '',
+    nome: '', 
+    email: '', 
+    senha: '', 
+    confirmarSenha: '', 
     nomeArtistico: '',
     nomeMusica: '',
-    capaMusica: null,
-    genero: 'rap',
+    capaMusica: null, 
+    audioMusica: null, 
+    genero: 'rap', 
     spotify: '',
     instagram: '',
-    sobre: ''
+    sobre: '' 
   });
 
   const [preview, setPreview] = useState({
@@ -24,14 +36,31 @@ const FormArtist = () => {
     visible: false
   });
 
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    const userName = localStorage.getItem('userName');
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+    if (!isLoggedIn || !userId) {
+      toast.info('Para cadastrar um artista, faça login primeiro.', { duration: 3000 });
+      navigate('/pages/login');
+    } else {
+      setLoggedInUserId(userId);
+      setLoggedInUserName(userName);
+      setFormData(prev => ({ ...prev, nome: userName })); 
+    }
+  }, [navigate]);
+
   const handleInputChange = (e) => {
     const { name, value, files } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: files ? files[0] : value
+      [name]: files ? files[0] : value 
     }));
 
-    // Atualiza preview em tempo real
     if (name === 'nomeMusica' || name === 'nomeArtistico') {
       setPreview(prev => ({
         ...prev,
@@ -54,15 +83,117 @@ const FormArtist = () => {
         });
       };
       reader.readAsDataURL(file);
+    } else {
+        setPreview(prev => ({ ...prev, image: 'https://via.placeholder.com/300x300', visible: false }));
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validação e envio do formulário
-    console.log('Dados do formulário:', formData);
-    // Aqui você pode adicionar a lógica de envio para o backend
+    setErrorMessage('');
+    setLoading(true);
+
+    if (!loggedInUserId) { 
+        setErrorMessage('Usuário não autenticado. Redirecionando para login...');
+        toast.error('Erro', { description: 'Usuário não autenticado.' });
+        setLoading(false);
+        navigate('/pages/login');
+        return;
+    }
+    
+    if (!loggedInUserId && formData.senha !== formData.confirmarSenha) { 
+      setErrorMessage('As senhas não coincidem!');
+      toast.error('Erro de validação', { description: 'As senhas não coincidem!' });
+      setLoading(false);
+      return;
+    }
+
+    const dataToSend = new FormData();
+
+    if (formData.capaMusica) {
+      dataToSend.append('capaMusica', formData.capaMusica);
+    } else {
+      setErrorMessage('Por favor, selecione uma capa para a música.');
+      toast.error('Erro de validação', { description: 'Selecione uma capa para a música.' });
+      setLoading(false);
+      return;
+    }
+
+    if (formData.audioMusica) {
+      dataToSend.append('audioMusica', formData.audioMusica);
+    } else {
+      setErrorMessage('Por favor, selecione o arquivo de áudio da música.');
+      toast.error('Erro de validação', { description: 'Selecione o arquivo de áudio da música.' });
+      setLoading(false);
+      return;
+    }
+
+    const artistMusicData = {
+      usuario: loggedInUserId ? { idUsuario: loggedInUserId } : { 
+        nome: formData.nome, 
+        email: formData.email, 
+        senha: formData.senha 
+      },
+      artista: { 
+        nomeArtistico: formData.nomeArtistico,
+        biografia: formData.sobre,
+        spotify: formData.spotify,
+        instagram: formData.instagram
+      },
+      musica: { 
+        nomeMusica: formData.nomeMusica,
+        genero: formData.genero,
+      }
+    };
+
+    dataToSend.append('data', JSON.stringify(artistMusicData));
+
+    try {
+      const response = await fetch('http://localhost:8080/api/artistas/cadastro-completo', {
+        method: 'POST',
+        body: dataToSend, 
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || errorData.detail || `Erro HTTP: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log('Cadastro completo realizado com sucesso:', result);
+      toast.success('Cadastro de artista e música realizado com sucesso!', {
+          description: 'Seu perfil foi criado e sua música adicionada.'
+      });
+      navigate('/'); 
+
+      setFormData({
+        nome: '', email: '', senha: '', confirmarSenha: '',
+        nomeArtistico: '', nomeMusica: '', capaMusica: null, audioMusica: null, genero: 'rap',
+        spotify: '', instagram: '', sobre: ''
+      });
+      setPreview({ image: 'https://via.placeholder.com/300x300', title: 'Nome da Música', artist: 'Nome do Artista', visible: false });
+
+    } catch (error) {
+      console.error('Erro ao cadastrar artista e música:', error);
+      setErrorMessage(error.message || 'Ocorreu um erro. Tente novamente.');
+      toast.error('Erro no cadastro completo', { description: error.message || 'Verifique sua conexão ou tente mais tarde.' });
+    } finally {
+      setLoading(false);
+    }
   };
+
+  // Redireciona se não estiver logado
+  if (!loggedInUserId) {
+    return (
+      <div className={`d-flex flex-column min-vh-100 ${styles.pageContainer}`}>
+        <Header />
+        <div className="text-center p-5">
+            <p>Verificando autenticação...</p>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className={`d-flex flex-column min-vh-100 ${styles.pageContainer}`}>
@@ -74,6 +205,8 @@ const FormArtist = () => {
           onInputChange={handleInputChange}
           onImageChange={handleImagePreview}
           onSubmit={handleSubmit}
+          isLoggedIn={!!loggedInUserId} 
+          loggedInUserName={loggedInUserName}
         />
         
         <MusicPreview 
