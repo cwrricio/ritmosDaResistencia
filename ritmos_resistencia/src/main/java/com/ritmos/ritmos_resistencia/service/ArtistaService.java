@@ -79,6 +79,7 @@ public class ArtistaService {
 
         musica.setArtista(novoArtista); 
         musica.setArquivo(caminhoRelativoAudio); 
+        musica.setCapa(caminhoRelativoCapa);
         
         musicaService.salvarMusica(musica); 
 

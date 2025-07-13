@@ -26,6 +26,9 @@ public class Musica {
     @Column(name = "arquivo", nullable = false) 
     private String arquivo;
 
+    @Column(name = "capa", nullable = false) 
+    private String capa; 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_artista_id_artista", referencedColumnName = "id_artista", nullable = false)
     private Artista artista;

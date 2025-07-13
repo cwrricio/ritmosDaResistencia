@@ -2,11 +2,8 @@
     "liveServer.settings.port": 5501,
 
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "interactive"
-
+    "java.configuration.updateBuildConfiguration": "interactive",
 
     "git.ignoreLimitWarning": true
-
-    "java.compile.nullAnalysis.mode": "automatic"
 
 }

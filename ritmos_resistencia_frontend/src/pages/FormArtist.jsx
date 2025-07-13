@@ -15,18 +15,18 @@ const FormArtist = () => {
   const [loggedInUserName, setLoggedInUserName] = useState('');
 
   const [formData, setFormData] = useState({
-    nome: '', 
-    email: '', 
-    senha: '', 
-    confirmarSenha: '', 
+    nome: '',
+    email: '',
+    senha: '',
+    confirmarSenha: '',
     nomeArtistico: '',
     nomeMusica: '',
-    capaMusica: null, 
-    audioMusica: null, 
-    genero: 'rap', 
+    capaMusica: null,
+    audioMusica: null,
+    genero: 'rap',
     spotify: '',
     instagram: '',
-    sobre: '' 
+    sobre: ''
   });
 
   const [preview, setPreview] = useState({
@@ -58,7 +58,7 @@ const FormArtist = () => {
     const { name, value, files } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: files ? files[0] : value 
+      [name]: files ? files[0] : value
     }));
 
     if (name === 'nomeMusica' || name === 'nomeArtistico') {
@@ -100,7 +100,7 @@ const FormArtist = () => {
         navigate('/pages/login');
         return;
     }
-    
+
     if (!loggedInUserId && formData.senha !== formData.confirmarSenha) { 
       setErrorMessage('As senhas não coincidem!');
       toast.error('Erro de validação', { description: 'As senhas não coincidem!' });
@@ -155,18 +155,25 @@ const FormArtist = () => {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || errorData.detail || `Erro HTTP: ${response.status}`);
+        const errorBody = await response.text(); 
+        let message = `Erro HTTP: ${response.status}`;
+        try {
+            const errorJson = JSON.parse(errorBody);
+            message = errorJson.message || errorJson.detail || message;
+        } catch (parseError) {
+            message = errorBody || message;
+        }
+        throw new Error(message); 
       }
 
-      const result = await response.json();
+      const result = await response.json(); 
       console.log('Cadastro completo realizado com sucesso:', result);
       toast.success('Cadastro de artista e música realizado com sucesso!', {
           description: 'Seu perfil foi criado e sua música adicionada.'
       });
       navigate('/'); 
 
-      setFormData({
+      setFormData({ 
         nome: '', email: '', senha: '', confirmarSenha: '',
         nomeArtistico: '', nomeMusica: '', capaMusica: null, audioMusica: null, genero: 'rap',
         spotify: '', instagram: '', sobre: ''
@@ -182,12 +189,11 @@ const FormArtist = () => {
     }
   };
 
-  // Redireciona se não estiver logado
   if (!loggedInUserId) {
     return (
       <div className={`d-flex flex-column min-vh-100 ${styles.pageContainer}`}>
         <Header />
-        <div className="text-center p-5">
+        <div className="flex-grow-1 d-flex justify-content-center align-items-center text-center">
             <p>Verificando autenticação...</p>
         </div>
         <Footer />
@@ -198,7 +204,7 @@ const FormArtist = () => {
   return (
     <div className={`d-flex flex-column min-vh-100 ${styles.pageContainer}`}>
       <Header />
-      
+
       <div className={`container ${styles.container}`}>
         <ArtistForm 
           formData={formData}
@@ -208,7 +214,7 @@ const FormArtist = () => {
           isLoggedIn={!!loggedInUserId} 
           loggedInUserName={loggedInUserName}
         />
-        
+
         <MusicPreview 
           image={preview.image}
           title={preview.title}
@@ -216,7 +222,7 @@ const FormArtist = () => {
           visible={preview.visible}
         />
       </div>
-      
+
       <Footer />
     </div>
   );

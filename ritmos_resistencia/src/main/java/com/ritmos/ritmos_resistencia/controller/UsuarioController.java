@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ritmos.ritmos_resistencia.dto.LoginRequest; // Importar o DTO
-import com.ritmos.ritmos_resistencia.model.Usuario; // Importar o Modelo Usuario
+import com.ritmos.ritmos_resistencia.dto.LoginRequest; 
+import com.ritmos.ritmos_resistencia.model.Usuario; 
 import com.ritmos.ritmos_resistencia.service.UsuarioService;
 
 @RestController
@@ -31,21 +31,17 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    // --- Endpoint de LOGIN (AGORA RETORNA Usuario) ---
     @PostMapping("/login") 
     public ResponseEntity<Usuario> loginUsuario(@RequestBody LoginRequest loginRequest){
         Optional<Usuario> usuarioOpt = usuarioService.autenticarUsuario(loginRequest.getEmail(), loginRequest.getSenha());
         
         if(usuarioOpt.isPresent()) {
-            // Retorna o objeto Usuario completo em JSON com status OK (200)
             return new ResponseEntity<>(usuarioOpt.get(), HttpStatus.OK); 
         } else {
-            // Retorna status UNAUTHORIZED (401) se as credenciais forem inválidas
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED); 
         }
     }
 
-    // --- Outros Endpoints (criarUsuario, listarUsuarios, etc. - já estão ok) ---
     @PostMapping("/usuarios") 
     public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
         System.out.println("DEBUG: Objeto Usuario recebido no Controller:");
