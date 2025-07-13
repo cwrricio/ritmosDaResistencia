@@ -65,11 +65,11 @@ cd ritmosDaResistencia
 ````
 ## Banco de Dados
 ### Modelo Entidade Relacionamento:
-![image](https://github.com/user-attachments/assets/faec08b5-0c8b-43fe-8cbc-e91db33f0531)
-
+<img width="1132" height="717" alt="image" src="https://github.com/user-attachments/assets/c79e1613-e918-401f-85d1-cc03156523df" />
 
 ### Modelo Lógico:
-![image](https://github.com/user-attachments/assets/b732b419-7e1f-43cc-8b77-ec6d11949ab7)
+<img width="1096" height="700" alt="image" src="https://github.com/user-attachments/assets/3788355e-463f-420c-8fcf-723c4c821001" />
+
 
 ### Script SQL
 ```bash
