@@ -13,6 +13,5 @@ public class MusicaResponseDTO {
     private String genero;
     private String arquivo; 
     private String capa;   
-
     private ArtistaResponseDTO artista; 
 }

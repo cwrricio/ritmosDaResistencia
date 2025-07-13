@@ -18,7 +18,7 @@ function App() {
         <Route path="pages/formulario" element={<FormArtist />} />
         <Route path="pages/cadastro" element={<Cadastro />} />
         <Route path="pages/player" element={<MusicPlayer />} />
-        <Route path="/doacao" element={<Donation />} />
+        <Route path="/doacao/:idArtista" element={<Donation />} />
       </Routes>
       <Toaster richColors position="top-right" />
     </Router>

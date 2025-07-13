@@ -35,13 +35,12 @@ public class MusicaController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
+
     @GetMapping("/musicas") 
     public ResponseEntity<List<MusicaResponseDTO>> listarMusicas() {
         List<Musica> musicas = musicaService.listarTodasMusicas();
         
         List<MusicaResponseDTO> musicasDTO = musicas.stream().map(musica -> {
-
             ArtistaResponseDTO artistaDTO = null;
             if (musica.getArtista() != null) {
                 artistaDTO = new ArtistaResponseDTO(
@@ -49,10 +48,10 @@ public class MusicaController {
                     musica.getArtista().getNomeArtistico(),
                     musica.getArtista().getBiografia(),
                     musica.getArtista().getInstagram(),
-                    musica.getArtista().getSpotify()
+                    musica.getArtista().getSpotify(),
+                    musica.getArtista().getMusicas() != null && !musica.getArtista().getMusicas().isEmpty() ? musica.getArtista().getMusicas().get(0).getCapa() : null
                 );
             }
-            
             return new MusicaResponseDTO(
                 musica.getIdMusica(),
                 musica.getNomeMusica(),
@@ -70,10 +69,34 @@ public class MusicaController {
     }
 
     @GetMapping("/musicas/{id}") 
-    public ResponseEntity<Musica> buscarMusicaPorId(@PathVariable Long id) {
-        Optional<Musica> musica = musicaService.buscarMusicaPorId(id);
-        return musica.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
-                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public ResponseEntity<MusicaResponseDTO> buscarMusicaPorId(@PathVariable Long id) {
+        Optional<Musica> musicaOpt = musicaService.buscarMusicaPorId(id);
+        
+        if (musicaOpt.isPresent()) {
+            Musica musica = musicaOpt.get();
+            ArtistaResponseDTO artistaDTO = null;
+            if (musica.getArtista() != null) { 
+                artistaDTO = new ArtistaResponseDTO(
+                    musica.getArtista().getIdArtista(),
+                    musica.getArtista().getNomeArtistico(),
+                    musica.getArtista().getBiografia(),
+                    musica.getArtista().getInstagram(),
+                    musica.getArtista().getSpotify(),
+                    musica.getArtista().getMusicas() != null && !musica.getArtista().getMusicas().isEmpty() ? musica.getArtista().getMusicas().get(0).getCapa() : null
+                );
+            }
+            MusicaResponseDTO musicaDTO = new MusicaResponseDTO(
+                musica.getIdMusica(),
+                musica.getNomeMusica(),
+                musica.getGenero(),
+                musica.getArquivo(),
+                musica.getCapa(),
+                artistaDTO
+            );
+            return new ResponseEntity<>(musicaDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping("/musicas/artista/{idArtista}") 
@@ -88,7 +111,8 @@ public class MusicaController {
                     musica.getArtista().getNomeArtistico(),
                     musica.getArtista().getBiografia(),
                     musica.getArtista().getInstagram(),
-                    musica.getArtista().getSpotify()
+                    musica.getArtista().getSpotify(),
+                    musica.getArtista().getMusicas() != null && !musica.getArtista().getMusicas().isEmpty() ? musica.getArtista().getMusicas().get(0).getCapa() : null
                 );
             }
             return new MusicaResponseDTO(
@@ -108,7 +132,7 @@ public class MusicaController {
     }
 
     @PutMapping("/musicas/{id}") 
-    public ResponseEntity<Musica> atualizarMusica(@PathVariable Long id, @RequestBody Musica musicaDetails) {
+    public ResponseEntity<MusicaResponseDTO> atualizarMusica(@PathVariable Long id, @RequestBody Musica musicaDetails) {
         Optional<Musica> musicaExistente = musicaService.buscarMusicaPorId(id);
 
         if (musicaExistente.isPresent()) {
@@ -116,10 +140,31 @@ public class MusicaController {
             musica.setNomeMusica(musicaDetails.getNomeMusica());
             musica.setGenero(musicaDetails.getGenero());
             musica.setArquivo(musicaDetails.getArquivo());
-            musica.setCapa(musicaDetails.getCapa()); 
+            musica.setCapa(musicaDetails.getCapa());
+            
             try {
                 Musica musicaAtualizada = musicaService.salvarMusica(musica);
-                return new ResponseEntity<>(musicaAtualizada, HttpStatus.OK);
+                
+                ArtistaResponseDTO artistaDTO = null;
+                if (musicaAtualizada.getArtista() != null) {
+                    artistaDTO = new ArtistaResponseDTO(
+                        musicaAtualizada.getArtista().getIdArtista(),
+                        musicaAtualizada.getArtista().getNomeArtistico(),
+                        musicaAtualizada.getArtista().getBiografia(),
+                        musicaAtualizada.getArtista().getInstagram(),
+                        musicaAtualizada.getArtista().getSpotify(),
+                        musicaAtualizada.getArtista().getMusicas() != null && !musicaAtualizada.getArtista().getMusicas().isEmpty() ? musicaAtualizada.getArtista().getMusicas().get(0).getCapa() : null
+                    );
+                }
+                MusicaResponseDTO musicaAtualizadaDTO = new MusicaResponseDTO(
+                    musicaAtualizada.getIdMusica(),
+                    musicaAtualizada.getNomeMusica(),
+                    musicaAtualizada.getGenero(),
+                    musicaAtualizada.getArquivo(),
+                    musicaAtualizada.getCapa(),
+                    artistaDTO
+                );
+                return new ResponseEntity<>(musicaAtualizadaDTO, HttpStatus.OK);
             } catch (IllegalArgumentException e) {
                 return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
             } catch (Exception e) {

@@ -50,7 +50,6 @@ const DonationForm = () => {
       </div>
       <div className={styles.donationCardContent}>
         <form onSubmit={handleDonation} className={styles.formSpacing}>
-          {/* Seção de Valor da Doação */}
           <div>
             <label className={styles.sectionLabel}>Valor da Doação</label>
             <div className={styles.amountButtonsGrid}>
@@ -84,10 +83,8 @@ const DonationForm = () => {
             </div>
           </div>
 
-          {/* Separador */}
           <div className={styles.separator}></div>
 
-          {/* Método de Pagamento */}
           <div className={styles.paymentMethodContainer}>
             <label className={styles.sectionLabel}>Método de Pagamento</label>
             <div className={styles.paymentMethodOptions}>
@@ -118,10 +115,8 @@ const DonationForm = () => {
             </div>
           </div>
 
-          {/* Separador */}
           <div className={styles.separator}></div>
 
-          {/* Informações do Doador */}
           <div className={styles.donorInfoContainer}>
             <label className={styles.sectionLabel}>Suas Informações (Opcional)</label>
             <div className={styles.donorInfoGrid}>
@@ -161,7 +156,6 @@ const DonationForm = () => {
             </div>
           </div>
 
-          {/* Botão de Doação */}
           <button
             type="submit"
             className={styles.donateButton}

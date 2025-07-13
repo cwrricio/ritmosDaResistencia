@@ -6,7 +6,7 @@ import com.ritmos.ritmos_resistencia.model.Usuario;
 import com.ritmos.ritmos_resistencia.repository.ArtistaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile; 
+import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,18 +14,18 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID; 
+import java.util.UUID;
 
 @Service
 public class ArtistaService {
 
     private final ArtistaRepository artistaRepository;
-    private final UsuarioService usuarioService; 
-    private final MusicaService musicaService;   
+    private final UsuarioService usuarioService;
+    private final MusicaService musicaService;
 
     private final String UPLOADS_BASE_DIR = "uploads/";
     private final String CAPAS_MUSICA_DIR = UPLOADS_BASE_DIR + "capas_musica/";
-    private final String ARQUIVOS_MUSICA_DIR = UPLOADS_BASE_DIR + "arquivos_musica/"; 
+    private final String ARQUIVOS_MUSICA_DIR = UPLOADS_BASE_DIR + "arquivos_musica/";
 
     @Autowired
     public ArtistaService(ArtistaRepository artistaRepository, UsuarioService usuarioService, MusicaService musicaService) {
@@ -34,31 +34,31 @@ public class ArtistaService {
         this.musicaService = musicaService;
 
         Path capasPath = Paths.get(CAPAS_MUSICA_DIR);
-        Path arquivosPath = Paths.get(ARQUIVOS_MUSICA_DIR); 
+        Path arquivosPath = Paths.get(ARQUIVOS_MUSICA_DIR);
         try {
             if (!Files.exists(capasPath)) Files.createDirectories(capasPath);
-            if (!Files.exists(arquivosPath)) Files.createDirectories(arquivosPath); 
+            if (!Files.exists(arquivosPath)) Files.createDirectories(arquivosPath);
         } catch (IOException e) {
             throw new RuntimeException("Não foi possível criar os diretórios de upload: " + e.getMessage(), e);
         }
     }
 
-    public Artista criarArtistaCompleto(Usuario usuario, Artista artista, Musica musica, 
-                                     MultipartFile capaMusicaFile, MultipartFile audioMusicaFile) throws IOException { // NOVO PARÂMETRO
+    public Artista criarArtistaCompleto(Usuario usuario, Artista artista, Musica musica,
+                                     MultipartFile capaMusicaFile, MultipartFile audioMusicaFile) throws IOException {
         
         Usuario novoOuExistenteUsuario;
         if (usuario.getIdUsuario() == null) {
             if (usuarioService.buscarUsuarioPorEmail(usuario.getEmail()).isPresent()) {
                 throw new IllegalArgumentException("Email de usuário já cadastrado.");
             }
-            novoOuExistenteUsuario = usuarioService.salvarUsuario(usuario); 
-        } else { 
+            novoOuExistenteUsuario = usuarioService.salvarUsuario(usuario);
+        } else {
             Optional<Usuario> usuarioOpt = usuarioService.buscarUsuarioPorId(usuario.getIdUsuario());
             if (usuarioOpt.isEmpty()) {
                 throw new IllegalArgumentException("Usuário logado não encontrado.");
             }
             novoOuExistenteUsuario = usuarioOpt.get();
-            if (artistaRepository.findByUsuarioIdUsuario(novoOuExistenteUsuario.getIdUsuario()).isPresent()) {
+            if (artista.getIdArtista() == null && artistaRepository.findByUsuarioIdUsuario(novoOuExistenteUsuario.getIdUsuario()).isPresent()) {
                 throw new IllegalStateException("Este usuário já possui um perfil de artista.");
             }
         }
@@ -77,6 +77,7 @@ public class ArtistaService {
         Files.copy(audioMusicaFile.getInputStream(), destinoArquivoAudio, StandardCopyOption.REPLACE_EXISTING);
         String caminhoRelativoAudio = ARQUIVOS_MUSICA_DIR + nomeArquivoAudio; 
 
+
         musica.setArtista(novoArtista); 
         musica.setArquivo(caminhoRelativoAudio); 
         musica.setCapa(caminhoRelativoCapa);
@@ -87,22 +88,22 @@ public class ArtistaService {
     }
 
     public Artista salvarArtista(Artista artista) {
-        if (artista.getUsuario() == null || artista.getUsuario().getIdUsuario() == null) {
-            throw new IllegalArgumentException("Artista deve estar associado a um usuário existente.");
-        }
-        Optional<Usuario> usuarioOpt = usuarioService.buscarUsuarioPorId(artista.getUsuario().getIdUsuario());
-        if (usuarioOpt.isEmpty()) {
-            throw new IllegalArgumentException("Usuário associado ao artista não encontrado.");
-        }
-        if (artista.getIdArtista() == null && artistaRepository.findByUsuarioIdUsuario(usuarioOpt.get().getIdUsuario()).isPresent()) {
-            throw new IllegalStateException("Este usuário já possui um perfil de artista.");
-        }
-        artista.setUsuario(usuarioOpt.get());
-        return artistaRepository.save(artista);
-    }
+         if (artista.getUsuario() == null || artista.getUsuario().getIdUsuario() == null) {
+             throw new IllegalArgumentException("Artista deve estar associado a um usuário existente.");
+         }
+         Optional<Usuario> usuarioOpt = usuarioService.buscarUsuarioPorId(artista.getUsuario().getIdUsuario());
+         if (usuarioOpt.isEmpty()) {
+             throw new IllegalArgumentException("Usuário associado ao artista não encontrado.");
+         }
+         if (artista.getIdArtista() == null && artistaRepository.findByUsuarioIdUsuario(usuarioOpt.get().getIdUsuario()).isPresent()) {
+             throw new IllegalStateException("Este usuário já possui um perfil de artista.");
+         }
+         artista.setUsuario(usuarioOpt.get());
+         return artistaRepository.save(artista);
+     }
 
     public List<Artista> listarTodosArtistas() {
-        return artistaRepository.findAll();
+        return artistaRepository.findAll(); 
     }
 
     public Optional<Artista> buscarArtistaPorId(Long id) {

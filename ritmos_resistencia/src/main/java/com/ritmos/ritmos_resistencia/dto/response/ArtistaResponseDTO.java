@@ -13,5 +13,5 @@ public class ArtistaResponseDTO {
     private String biografia;
     private String instagram;
     private String spotify;
-
+    private String capaPrimeiraMusica;
 }

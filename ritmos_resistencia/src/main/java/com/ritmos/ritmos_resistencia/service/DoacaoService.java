@@ -9,9 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.time.LocalDateTime;
+import org.slf4j.*;
 
 @Service
 public class DoacaoService {
+
+    private static final Logger log = LoggerFactory.getLogger(DoacaoService.class);
 
     private final DoacaoRepository doacaoRepository;
     private final UsuarioService usuarioService; 
@@ -47,7 +50,16 @@ public class DoacaoService {
             doacao.setDataDoacao(LocalDateTime.now());
         }
 
-        return doacaoRepository.save(doacao);
+        Doacao novaDoacao = doacaoRepository.save(doacao);
+
+        log.info("Notificação de Doação: Artista '{}' recebeu R$ {} de '{}' (usuário ID: {}). Mensagem: '{}",
+            novaDoacao.getArtistaRecebedor().getNomeArtistico(),
+            novaDoacao.getValor(),
+            novaDoacao.getDoador().getNome(), 
+            novaDoacao.getDoador().getIdUsuario(),
+            novaDoacao.getMensagem() != null && !novaDoacao.getMensagem().isEmpty() ? novaDoacao.getMensagem() : "[Sem mensagem]"
+        );
+    return novaDoacao;
     }
 
     public List<Doacao> listarTodasDoacoes() {
