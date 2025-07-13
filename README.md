@@ -9,6 +9,9 @@ Este projeto está alinhado com os **Objetivos de Desenvolvimento Sustentável (
 * **ODS 8 - Trabalho Decente e Crescimento Econômico:** Promove o crescimento econômico inclusivo e sustentável ao criar um canal de monetização para artistas independentes, gerando renda e reconhecimento para seu trabalho.
 * **ODS 10 - Redução das Desigualdades:** Contribui para a redução das desigualdades ao dar voz e plataforma para artistas de grupos historicamente marginalizados, combatendo o racismo estrutural no mercado da arte e música.
 
+## Membros:
+Graziela Espindola Bitencourt
+
 ## 🚀 Tecnologias Utilizadas
 
 ### Back-end
@@ -68,9 +71,102 @@ cd ritmosDaResistencia
 ### Modelo Lógico:
 ![image](https://github.com/user-attachments/assets/b732b419-7e1f-43cc-8b77-ec6d11949ab7)
 
+### Script SQL
+```bash
+CREATE DATABASE IF NOT EXISTS `ritmos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `ritmos` ;
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id_usuario` BIGINT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL UNIQUE, 
+  `senha` VARCHAR(255) NOT NULL, 
+  PRIMARY KEY (`id_usuario`)
+) ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS `artista` (
+  `id_artista` BIGINT NOT NULL AUTO_INCREMENT, 
+  `nome_artistico` VARCHAR(255) NOT NULL,
+  `biografia` TEXT NULL, 
+  `instagram` VARCHAR(255) NULL,
+  `spotify` VARCHAR(255) NULL,
+  `fk_usuario_id_usuario` BIGINT NOT NULL UNIQUE, 
+  
+  PRIMARY KEY (`id_artista`),
+  INDEX `idx_fk_usuario_id_usuario` (`fk_usuario_id_usuario` ASC) VISIBLE,
+  CONSTRAINT `fk_artista_usuario`
+    FOREIGN KEY (`fk_usuario_id_usuario`)
+    REFERENCES `usuario` (`id_usuario`)
+    ON DELETE CASCADE   
+    ON UPDATE CASCADE
+) ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS `musica` (
+  `id_musica` BIGINT NOT NULL AUTO_INCREMENT,
+  `nome_musica` VARCHAR(255) NOT NULL,
+  `genero` VARCHAR(100) NOT NULL,
+  `arquivo` VARCHAR(500) NOT NULL, 
+`capa` VARCHAR(500) NOT NULL,
+  `fk_artista_id_artista` BIGINT NOT NULL, 
+  PRIMARY KEY (`id_musica`),
+  INDEX `idx_fk_artista_id_artista` (`fk_artista_id_artista` ASC) VISIBLE,
+  CONSTRAINT `fk_musica_artista`
+    FOREIGN KEY (`fk_artista_id_artista`)
+    REFERENCES `artista` (`id_artista`)
+    ON DELETE CASCADE   
+    ON UPDATE CASCADE
+) ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS `doacao` (
+  `id_doacao` BIGINT NOT NULL AUTO_INCREMENT,
+  `valor` DECIMAL(10, 2) NOT NULL,
+  `metodo_pagamento` VARCHAR(100) NOT NULL,
+  `status` VARCHAR(50) NOT NULL, 
+  `mensagem` TEXT NULL, 
+  `data_doacao` DATETIME NOT NULL, 
+  
+  `fk_doador_usuario_id_usuario` BIGINT NOT NULL, 
+  `fk_recebedor_artista_id_artista` BIGINT NOT NULL, 
+  
+  PRIMARY KEY (`id_doacao`),
+  INDEX `idx_fk_doador_usuario` (`fk_doador_usuario_id_usuario` ASC) VISIBLE,
+  INDEX `idx_fk_recebedor_artista` (`fk_recebedor_artista_id_artista` ASC) VISIBLE,
+  
+  CONSTRAINT `fk_doacao_doador_usuario`
+    FOREIGN KEY (`fk_doador_usuario_id_usuario`)
+    REFERENCES `usuario` (`id_usuario`)
+    ON DELETE RESTRICT 
+    ON UPDATE CASCADE,
+    
+  CONSTRAINT `fk_doacao_recebedor_artista`
+    FOREIGN KEY (`fk_recebedor_artista_id_artista`)
+    REFERENCES `artista` (`id_artista`)
+    ON DELETE RESTRICT 
+    ON UPDATE CASCADE
+) ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_0900_ai_ci;
+```
 
 
 
+Após inserir todas as informações necessárias, não se esqueça de **adicionar sua própria senha de usuário** no arquivo `application.properties`.
+
+Em seguida, **compile e inicie o backend**. Para isso, vá até o arquivo `RitmosResistenciaApplication.java` e execute a aplicação Spring Boot.
+
+Assim que o backend estiver em execução, acesse a pasta `ritmos-frontend`, abra o **terminal integrado** e execute o comando:
+
+```bash
+npm start
+```
+
+O projeto será iniciado automaticamente no navegador.
 
 
 
