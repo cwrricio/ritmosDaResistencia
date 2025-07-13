@@ -168,6 +168,8 @@ npm start
 
 O projeto será iniciado automaticamente no navegador.
 
+Com tudo isso o projeto se aplica ao modelo de projeto intermediário.
+
 
 
 
