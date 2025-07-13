@@ -4,14 +4,13 @@ import Footer from '../components/Footer';
 import ArtistGrid from '../components/home/ArtistGrid';
 import ArtistCarousel from '../components/home/ArtistCarousel';
 import Section from '../components/Section';
-import styles from '../styles/Home.module.css';     
+import styles from '../styles/home/Home.module.css';     
 
 const Home = () => {
     return (
         <>
             <Header />
 
-            {/* Hero Section */}
             <div className={`hero-section ${styles.heroSection}`}>
                 <h1 className={`text-center ${styles.title}`}>RITMOS DA RESISTÊNCIA</h1>
 
@@ -28,7 +27,6 @@ const Home = () => {
                 </Section>
             </div>
 
-            {/* Seção Música como Resistência */}
             <Section title="A Música como Resistência">
                 <p className={`text-center ${styles.paragraph}`}>
                     Desde os tempos da escravidão, a música tem sido uma ferramenta poderosa de expressão e
@@ -39,7 +37,6 @@ const Home = () => {
                 </p>
             </Section>
 
-            {/* Seção Quim Negro */}
             <Section>
                 <div className="row align-items-center">
                     <div className="col-md-8">
@@ -69,7 +66,6 @@ const Home = () => {
                 </div>
             </Section>
 
-            {/* Call to Action */}
             <Section className="call-to-action">
                 <div className="col-md-8 mx-auto text-center">
                     <h2 className={styles.sectionTitle}>Faça Parte Dessa História</h2>
@@ -82,7 +78,6 @@ const Home = () => {
                 </div>
             </Section>
 
-            {/* Artistas Nacionais */}
             <Section title="Artistas Nacionais">
                 <p className={`lead text-center ${styles.leadText}`}>
                     A música brasileira é rica em diversidade e talento. Aqui, destacamos alguns dos artistas
@@ -93,7 +88,6 @@ const Home = () => {
 
             <ArtistGrid />
 
-            {/* Artistas Internacionais */}
             <Section title="Artistas Internacionais">
                 <p className={`lead text-center ${styles.leadText}`}>
                     A música transcende fronteiras e influencia artistas ao redor do mundo. Conheça alguns dos nomes

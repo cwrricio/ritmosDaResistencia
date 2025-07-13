@@ -8,9 +8,7 @@ import java.util.List;
 
 @Repository
 public interface MusicaRepository extends JpaRepository<Musica, Long> {
-    // Buscar músicas por um artista específico
     List<Musica> findByArtistaIdArtista(Long idArtista);
 
-    // Buscar músicas por gênero
     List<Musica> findByGenero(String genero);
 }

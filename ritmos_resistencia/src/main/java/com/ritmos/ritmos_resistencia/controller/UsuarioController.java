@@ -1,3 +1,4 @@
+// src/main/java/com/ritmos/ritmos_resistencia/controller/UsuarioController.java
 package com.ritmos.ritmos_resistencia.controller;
 
 import java.util.List;
@@ -15,11 +16,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ritmos.ritmos_resistencia.model.Usuario;
+import com.ritmos.ritmos_resistencia.dto.LoginRequest; // Importar o DTO
+import com.ritmos.ritmos_resistencia.model.Usuario; // Importar o Modelo Usuario
 import com.ritmos.ritmos_resistencia.service.UsuarioService;
 
 @RestController
-@RequestMapping("/api/usuarios") 
+@RequestMapping("/api") 
 public class UsuarioController {
 
     private final UsuarioService usuarioService; 
@@ -29,36 +31,53 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @PostMapping
+    // --- Endpoint de LOGIN (AGORA RETORNA Usuario) ---
+    @PostMapping("/login") 
+    public ResponseEntity<Usuario> loginUsuario(@RequestBody LoginRequest loginRequest){
+        Optional<Usuario> usuarioOpt = usuarioService.autenticarUsuario(loginRequest.getEmail(), loginRequest.getSenha());
+        
+        if(usuarioOpt.isPresent()) {
+            // Retorna o objeto Usuario completo em JSON com status OK (200)
+            return new ResponseEntity<>(usuarioOpt.get(), HttpStatus.OK); 
+        } else {
+            // Retorna status UNAUTHORIZED (401) se as credenciais forem inválidas
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED); 
+        }
+    }
+
+    // --- Outros Endpoints (criarUsuario, listarUsuarios, etc. - já estão ok) ---
+    @PostMapping("/usuarios") 
     public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
-      
+        System.out.println("DEBUG: Objeto Usuario recebido no Controller:");
+        System.out.println("DEBUG: Nome: " + usuario.getNome());
+        System.out.println("DEBUG: Email: " + usuario.getEmail());
+        System.out.println("DEBUG: Senha: " + usuario.getSenha()); 
         Usuario novoUsuario = usuarioService.salvarUsuario(usuario);
         return new ResponseEntity<>(novoUsuario, HttpStatus.CREATED);
     }
 
-    @GetMapping
+    @GetMapping("/usuarios") 
     public ResponseEntity<List<Usuario>> listarUsuarios() {
         List<Usuario> usuarios = usuarioService.listarTodosUsuarios();
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/usuarios/{id}") 
     public ResponseEntity<Usuario> buscarUsuarioPorId(@PathVariable Long id) {
         Optional<Usuario> usuario = usuarioService.buscarUsuarioPorId(id);
         return usuario.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                       .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/usuarios/{id}") 
     public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuarioDetails) {
         Optional<Usuario> usuarioExistente = usuarioService.buscarUsuarioPorId(id);
 
         if (usuarioExistente.isPresent()) {
             Usuario usuario = usuarioExistente.get();
-
             usuario.setNome(usuarioDetails.getNome());
             usuario.setEmail(usuarioDetails.getEmail());
-            usuario.setSenha(usuarioDetails.getSenha());
+            usuario.setSenha(usuarioDetails.getSenha()); 
 
             Usuario usuarioAtualizado = usuarioService.salvarUsuario(usuario);
             return new ResponseEntity<>(usuarioAtualizado, HttpStatus.OK);
@@ -67,13 +86,13 @@ public class UsuarioController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/usuarios/{id}") 
     public ResponseEntity<HttpStatus> deletarUsuario(@PathVariable Long id) {
         try {
             usuarioService.deletarUsuario(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT); 
         } catch (RuntimeException e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR); 
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND); 
         }
     }
 }

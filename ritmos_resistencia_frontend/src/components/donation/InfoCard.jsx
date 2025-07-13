@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/InfoCard.module.css'; 
+import styles from '../../styles/donation/InfoCard.module.css'; 
 
 const InfoCard = () => {
   return (

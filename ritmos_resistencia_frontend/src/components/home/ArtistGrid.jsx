@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/ArtistGrid.module.css'; // Importa o CSS Module
+import styles from '../../styles/home/ArtistGrid.module.css'; 
 
 const ArtistGrid = () => {
   const artists = [

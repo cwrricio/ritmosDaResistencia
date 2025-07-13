@@ -6,19 +6,21 @@ import FormArtist from './pages/FormArtist';
 import Cadastro from './pages/Register';
 import MusicPlayer from './pages/MusicPlayer';
 import Donation from './pages/Donation';
+import { Toaster } from 'sonner';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-         <Route path="pages/apoie" element={<Support />} />
+        <Route path="pages/apoie" element={<Support />} />
         <Route path="pages/login" element={<Login />} />
-         <Route path="pages/formulario" element={<FormArtist />} />
+        <Route path="pages/formulario" element={<FormArtist />} />
         <Route path="pages/cadastro" element={<Cadastro />} />
         <Route path="pages/player" element={<MusicPlayer />} />
         <Route path="/doacao" element={<Donation />} />
       </Routes>
+      <Toaster richColors position="top-right" />
     </Router>
   );
 }

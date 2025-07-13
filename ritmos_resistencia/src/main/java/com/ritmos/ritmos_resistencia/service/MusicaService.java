@@ -1,7 +1,6 @@
 package com.ritmos.ritmos_resistencia.service;
 
 import com.ritmos.ritmos_resistencia.model.Musica;
-import com.ritmos.ritmos_resistencia.model.Artista;
 import com.ritmos.ritmos_resistencia.repository.MusicaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,25 +11,14 @@ import java.util.Optional;
 public class MusicaService {
 
     private final MusicaRepository musicaRepository;
-    private final ArtistaService artistaService; // Para verificar o artista associado
-
+    
     @Autowired
-    public MusicaService(MusicaRepository musicaRepository, ArtistaService artistaService) {
+    public MusicaService(MusicaRepository musicaRepository) { 
         this.musicaRepository = musicaRepository;
-        this.artistaService = artistaService;
     }
 
     public Musica salvarMusica(Musica musica) {
 
-        if (musica.getArtista() == null || musica.getArtista().getIdArtista() == null) {
-            throw new IllegalArgumentException("Música deve estar associada a um artista existente.");
-        }
-        Optional<Artista> artistaOpt = artistaService.buscarArtistaPorId(musica.getArtista().getIdArtista());
-        if (artistaOpt.isEmpty()) {
-            throw new IllegalArgumentException("Artista associado à música não encontrado.");
-        }
-        musica.setArtista(artistaOpt.get());
-        
         return musicaRepository.save(musica);
     }
 

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-RitmosResistenciaApplication<ritmos_resistencia>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ritmos.ritmos_resistencia.RitmosResistenciaApplication",
+            "projectName": "ritmos_resistencia",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

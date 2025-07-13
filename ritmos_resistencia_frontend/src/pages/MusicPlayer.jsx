@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import PlayerControls from '../components/music/PlayerControls';
 import PlayerInfo from '../components/music/PlayerInfo';
 import ProgressBar from '../components/music/ProgressBar';
-import styles from '../styles/MusicPlayer.module.css';
+import styles from '../styles/music/MusicPlayer.module.css';
 
 const MusicPlayer = () => {
   const songs = [

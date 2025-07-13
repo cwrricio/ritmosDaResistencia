@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../styles/Login.module.css';
+import styles from '../styles/login/Login.module.css';
 import LoginForm from '../components/login/LoginForm';
 import LoginSidebar from '../components/login/LoginSidebar';
 

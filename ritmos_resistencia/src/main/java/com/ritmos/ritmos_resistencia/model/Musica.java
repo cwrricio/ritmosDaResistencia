@@ -23,12 +23,10 @@ public class Musica {
     @Column(name = "genero", nullable = false)
     private String genero;
 
-    @Column(name = "arquivo", nullable = false) // Caminho ou URL para o arquivo de áudio
+    @Column(name = "arquivo", nullable = false) 
     private String arquivo;
 
-    // Relacionamento Many-to-One: Muitas Musicas para Um Artista
-    // fk_artista_id_artista aponta para id_artista da tabela artista
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_artista_id_artista", referencedColumnName = "id_artista", nullable = false)
-    private Artista artista; // Objeto Artista associado a esta música
+    private Artista artista;
 }

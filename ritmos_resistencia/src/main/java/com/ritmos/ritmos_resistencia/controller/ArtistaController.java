@@ -2,29 +2,59 @@ package com.ritmos.ritmos_resistencia.controller;
 
 import com.ritmos.ritmos_resistencia.model.Artista;
 import com.ritmos.ritmos_resistencia.service.ArtistaService;
+import com.ritmos.ritmos_resistencia.dto.ArtistaMusicaRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.multipart.MultipartFile; 
+import com.fasterxml.jackson.databind.ObjectMapper; 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/artistas")
+@RequestMapping("/api") 
 public class ArtistaController {
 
     private final ArtistaService artistaService;
+    private final ObjectMapper objectMapper; 
 
     @Autowired
-    public ArtistaController(ArtistaService artistaService) {
+    public ArtistaController(ArtistaService artistaService, ObjectMapper objectMapper) {
         this.artistaService = artistaService;
+        this.objectMapper = objectMapper; 
     }
 
-    @PostMapping
+    @PostMapping("/artistas/cadastro-completo")
+    public ResponseEntity<?> criarArtistaCompleto(
+        @RequestPart("data") String artistaMusicaRequestJson, 
+        @RequestPart("capaMusica") MultipartFile capaMusicaFile, 
+        @RequestPart("audioMusica") MultipartFile audioMusicaFile 
+    ) {
+        try {
+            ArtistaMusicaRequest request = objectMapper.readValue(artistaMusicaRequestJson, ArtistaMusicaRequest.class);
+
+            Artista artista = request.getArtista();
+            com.ritmos.ritmos_resistencia.model.Usuario usuario = request.getUsuario(); 
+            com.ritmos.ritmos_resistencia.model.Musica musica = request.getMusica(); 
+
+            Artista novoArtista = artistaService.criarArtistaCompleto(usuario, artista, musica, capaMusicaFile, audioMusicaFile);
+
+            return new ResponseEntity<>(novoArtista, HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        } catch (IOException e) {
+            return new ResponseEntity<>("Erro ao processar o arquivo: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Erro interno ao cadastrar: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("/artistas") 
     public ResponseEntity<Artista> criarArtista(@RequestBody Artista artista) {
         try {
-            Artista novoArtista = artistaService.salvarArtista(artista);
+            Artista novoArtista = artistaService.salvarArtista(artista); 
             return new ResponseEntity<>(novoArtista, HttpStatus.CREATED);
         } catch (IllegalArgumentException | IllegalStateException e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST); 
@@ -33,20 +63,20 @@ public class ArtistaController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/artistas") 
     public ResponseEntity<List<Artista>> listarArtistas() {
         List<Artista> artistas = artistaService.listarTodosArtistas();
         return new ResponseEntity<>(artistas, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/artistas/{id}") 
     public ResponseEntity<Artista> buscarArtistaPorId(@PathVariable Long id) {
         Optional<Artista> artista = artistaService.buscarArtistaPorId(id);
         return artista.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                       .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/artistas/{id}") 
     public ResponseEntity<Artista> atualizarArtista(@PathVariable Long id, @RequestBody Artista artistaDetails) {
         Optional<Artista> artistaExistente = artistaService.buscarArtistaPorId(id);
 
@@ -61,7 +91,7 @@ public class ArtistaController {
                 Artista artistaAtualizado = artistaService.salvarArtista(artista);
                 return new ResponseEntity<>(artistaAtualizado, HttpStatus.OK);
             } catch (IllegalArgumentException | IllegalStateException e) {
-                 return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
             } catch (Exception e) {
                 return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
             }
@@ -70,7 +100,7 @@ public class ArtistaController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/artistas/{id}") 
     public ResponseEntity<HttpStatus> deletarArtista(@PathVariable Long id) {
         try {
             artistaService.deletarArtista(id);

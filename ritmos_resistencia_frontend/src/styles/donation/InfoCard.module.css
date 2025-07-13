@@ -1,4 +1,3 @@
-/* InfoCard.module.css */
 .infoCard {
   background: white;
   border-radius: 0.5rem;
@@ -65,16 +64,13 @@
 }
 
 .featuredArtistAvatarTwo {
-  /* ... mesma base, mudar cores */
   background: linear-gradient(to bottom right, #3b82f6, #10b981);
 }
 
 .featuredArtistAvatarThree {
-  /* ... mesma base, mudar cores */
   background: linear-gradient(to bottom right, #8b5cf6, #ec4899);
 }
 
-/* Estilos para NoticeCard */
 .securityCard {
   background: white;
   border: 1px solid #d1fae5;

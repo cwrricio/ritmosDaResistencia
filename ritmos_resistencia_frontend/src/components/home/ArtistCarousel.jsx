@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/ArtistCarousel.module.css';
+import styles from '../../styles/home/ArtistCarousel.module.css';
 
 const ArtistCarousel = () => {
   const artists = [

@@ -33,6 +33,7 @@ public class DoacaoService {
             throw new IllegalArgumentException("Usuário doador não encontrado.");
         }
         doacao.setDoador(doadorOpt.get()); 
+        
         if (doacao.getArtistaRecebedor() == null || doacao.getArtistaRecebedor().getIdArtista() == null) {
             throw new IllegalArgumentException("Doação deve ser para um artista recebedor.");
         }
@@ -41,6 +42,7 @@ public class DoacaoService {
             throw new IllegalArgumentException("Artista recebedor não encontrado.");
         }
         doacao.setArtistaRecebedor(recebedorOpt.get()); 
+        
         if (doacao.getDataDoacao() == null) {
             doacao.setDataDoacao(LocalDateTime.now());
         }

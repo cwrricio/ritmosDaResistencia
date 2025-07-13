@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heart } from 'lucide-react'; 
 
-import styles from '../../styles/InfoCard.module.css'; 
+import styles from '../../styles/donation/InfoCard.module.css'; 
 
 const NoticeCard = () => {
   return (

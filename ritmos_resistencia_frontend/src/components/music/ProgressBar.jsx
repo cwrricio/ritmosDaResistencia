@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/MusicPlayer.module.css';
+import styles from '../../styles/music/MusicPlayer.module.css';
 
 const ProgressBar = ({ currentTime, duration, onProgressBarClick }) => {
   const formatTime = (time) => {
