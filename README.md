@@ -19,7 +19,6 @@ Graziela Espindola Bitencourt
 * **Spring Boot (v3.x):** Framework para desenvolvimento rápido de aplicações Java.
 * **Spring Data JPA:** Facilita a interação com o banco de dados.
 * **Hibernate:** Implementação do JPA.
-* **Spring Security Crypto:** Para hashing seguro de senhas (BCrypt).
 * **Maven:** Gerenciador de dependências.
 * **MySQL:** Banco de dados relacional.
 
